@@ -1,8 +1,6 @@
-<php
+<?php
 require_once 'dbconfig.php';
-
-echo "TEST";
->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +12,7 @@ echo "TEST";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <title>DeQue</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
