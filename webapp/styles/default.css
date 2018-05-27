@@ -6,3 +6,34 @@ body {
         padding-top: 56px;
     }
 }
+
+html, body, #map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: relative;
+}
+
+@media (min-width: 767px) {
+    .navbar-search-form {
+      position: absolute;
+      left: 300px;
+      right: 200px;
+      top: 1px;
+      margin: auto;
+      float: none;
+      text-align: center;
+      padding: 8px 0;
+    }
+  }
+
+.search-input{
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+
+    margin-right: 10px;
+}

@@ -32,6 +32,17 @@ require_once 'dbconfig.php';
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+          <form class="navbar-form navbar-search-form active" role="search">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control search-input" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+              </span>
+              </div>
+            </div>
+          </form>
+          <!--
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home
@@ -48,16 +59,17 @@ require_once 'dbconfig.php';
               <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
+          -->
         </div>
       </div>
     </nav>
 
     <!-- Page Content -->
+    <div id="map" style="width:100%; height:100%;">My map will go here</div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="mt-5">DeQue</h1>
-          <p class="lead">Don't waste your time waiting in queues! </p>
+        <div class="col-lg-12 text-center map-container">
+          
         </div>
       </div>
     </div>
@@ -76,6 +88,8 @@ require_once 'dbconfig.php';
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <script src="scripts/gmaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> 
   </body>
 
 </html>
