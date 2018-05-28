@@ -1,5 +1,6 @@
 <?php
 require_once 'dbconfig.php';
+require_once 'timezoneconfig.php';
 ?>
 
 <!DOCTYPE html>

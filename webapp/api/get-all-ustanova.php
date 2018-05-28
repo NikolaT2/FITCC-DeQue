@@ -1,5 +1,6 @@
 <?php
 require_once '../dbconfig.php';
+require_once '../timezoneconfig.php';
 
 $query = "SELECT * FROM USTANOVA;";
 $result = mysqli_query($con, $query);

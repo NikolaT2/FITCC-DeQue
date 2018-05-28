@@ -1,11 +1,12 @@
 <?php
 require_once '../dbconfig.php';
+require_once '../timezoneconfig.php';
 
 $query = "  SELECT * 
             FROM STANJE s 
             LEFT JOIN USTANOVA u ON s.ID_USTANOVE = u.ID_USTANOVE 
-            WHERE s.ID_USTANOVE=" . $_GET['ustanova'] . " 
-            AND DATUM='" . $_GET['datum'] . "';";
+            WHERE s.ID_USTANOVE=" . $_GET['id_ustanove'] . " 
+            AND DATUM='" . date('Y-m-d') . "';";
             
 $result = mysqli_query($con, $query);
 

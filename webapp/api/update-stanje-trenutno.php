@@ -1,5 +1,6 @@
 <?php
 require_once '../dbconfig.php';
+require_once '../timezoneconfig.php';
 
 $query =    "SELECT * FROM STANJE 
             WHERE ID_USTANOVE=" . $_GET['id_ustanove'] .
