@@ -20,10 +20,11 @@ function myMap() {
     $.get('http://localhost/webapp/api/get-all-ustanova.php', function(data) {
         var markers = JSON.parse(data);
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        
+        var currentDate = new Date().toISOString().slice(0, 10).replace('T', ' ');
+
         markers.forEach(element => {
 
-            $.get('http://localhost/webapp/api/get-ustanova-stanje.php?ustanova=' + element['ID_USTANOVE'], function(data_stanje) {
+            $.get('http://localhost/webapp/api/get-ustanova-stanje.php?ustanova=' + element['ID_USTANOVE'] + '&datum=' + currentDate, function(data_stanje) {
                 var stanje = JSON.parse(data_stanje);
             
                 var marker = new google.maps.Marker({
