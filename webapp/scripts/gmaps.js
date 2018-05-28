@@ -24,7 +24,7 @@ function myMap() {
 
         markers.forEach(element => {
 
-            $.get('http://localhost/webapp/api/get-ustanova-stanje.php?ustanova=' + element['ID_USTANOVE'] + '&datum=' + currentDate, function(data_stanje) {
+            $.get('http://localhost/webapp/api/get-ustanova-stanje.php?id_ustanove=' + element['ID_USTANOVE'], function(data_stanje) {
                 var stanje = JSON.parse(data_stanje);
             
                 var marker = new google.maps.Marker({
@@ -32,10 +32,15 @@ function myMap() {
                     map: map,
                     title: "Test marker"
                 });
-            
+                
+                var poslednji_minus_trenutni = 0;
+                if (stanje[0] != null)
+                    poslednji_minus_trenutni = (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']));
+
+                
                 var contentString = '<p>' + element['NAZIV'] + '</p>' + 
-                                    '<p>People in queue: ' + (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE'])) + '</p>' + 
-                                    '<p>Estimated waiting time: ' + (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']))*5 + 'min </p>';
+                                    '<p>People in queue: ' + poslednji_minus_trenutni + '</p>' + 
+                                    '<p>Estimated waiting time: ' + poslednji_minus_trenutni*5 + 'min </p>';
             
                 var infowindow = new google.maps.InfoWindow({
                     content: contentString
