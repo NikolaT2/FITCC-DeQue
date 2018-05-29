@@ -16,10 +16,11 @@ require_once 'timezoneconfig.php';
     <title>DeQue</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles -->
-    <link href="styles/default.css" rel="stylesheet">
+    <link href="styles/default.css" rel="stylesheet"> 
 
     <script src="scripts/search-suggestions.js"></script>
 
@@ -27,7 +28,7 @@ require_once 'timezoneconfig.php';
 
   <body>
 
-    <!-- Navigation -->
+    <!-- Navigation old
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">DeQue</a>
@@ -46,7 +47,7 @@ require_once 'timezoneconfig.php';
             <div id="livesearch"></div>
            </div>
           </form>
-          <!--
+          
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home
@@ -63,9 +64,37 @@ require_once 'timezoneconfig.php';
               <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
-          -->
+
         </div>
       </div>
+    </nav>
+    -->
+
+    <!-- Navigation new -->
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white">
+        <a href="#" class="navbar-brand">DeQue</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar5">
+            <form class="mx-2 my-auto d-inline w-100" autocomplete="off">
+                <div class="input-group">
+                  <input type="text" class="form-control border border-right-0 search-input" id="searchBox" onkeyup="showResult(this.value)" placeholder="Search for...">
+                  <span class="input-group-append">
+                    <button class="btn btn-outline-secondary border border-left-0 search-img" type="button" onclick="reloadMap()"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+                <div id="livesearch"></div>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inquire<span class="sr-only">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Page Content -->
@@ -89,8 +118,9 @@ require_once 'timezoneconfig.php';
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script src="scripts/gmaps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlIllIUxkJ8epjpWWYZj60o2H_E_HNqVQ&callback=myMap" async defer></script>

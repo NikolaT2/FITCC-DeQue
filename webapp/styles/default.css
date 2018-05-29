@@ -17,32 +17,3 @@ html, body, #map {
 #map {
     position: relative;
 }
-
-@media (min-width: 767px) {
-    .navbar-search-form {
-      position: absolute;
-      left: 300px;
-      right: 200px;
-      top: 1px;
-      margin: auto;
-      float: none;
-      text-align: center;
-      padding: 8px 0;
-    }
-  }
-
-.search-input{
-    border-top-right-radius: 0.25rem !important;
-    border-bottom-right-radius: 0.25rem !important;
-
-    margin-right: 10px;
-}
-
-.search-img{
-    padding: .25rem .75rem;
-}
-
-#livesearch{
-    background-color: white;
-    width: 92.5%;
-}
