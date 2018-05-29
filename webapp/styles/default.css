@@ -17,3 +17,11 @@ html, body, #map {
 #map {
     position: relative;
 }
+
+.left-info-pane{
+    position: absolute;
+    top: 56px;
+    height: calc(100% - 55px);
+    width: 400px;
+    background-color: white;
+}

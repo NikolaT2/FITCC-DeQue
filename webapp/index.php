@@ -117,6 +117,9 @@ require_once 'timezoneconfig.php';
       </div>
     </div>
 
+    <div class="left-info-pane">
+    </div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
