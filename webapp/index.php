@@ -1,6 +1,16 @@
 <?php
 require_once 'dbconfig.php';
 require_once 'timezoneconfig.php';
+
+$query = "SELECT DISTINCT(NAZIV) FROM USTANOVA;";
+$result = mysqli_query($con, $query);
+
+$array = array();
+
+while($row = mysqli_fetch_assoc($result)) {
+    array_push($array, $row);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +30,7 @@ require_once 'timezoneconfig.php';
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles -->
-    <link href="styles/default.css" rel="stylesheet"> 
+    <link href="styles/default6.css" rel="stylesheet"> 
 
     <script src="scripts/search-suggestions.js"></script>
 
@@ -72,7 +82,7 @@ require_once 'timezoneconfig.php';
 
     <!-- Navigation new -->
     <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white">
-        <a href="#" class="navbar-brand">DeQue</a>
+        <a href="index.php" class="navbar-brand">DeQue</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar5">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -118,6 +128,21 @@ require_once 'timezoneconfig.php';
     </div>
 
     <div class="left-info-pane">
+      <div class="top-ustanove" id="top-ustanove">
+        <?php
+        for($i = 1; $i <= 5; $i++)
+        {
+            $naziv = $array[$i]['NAZIV'];
+            echo "<div class=\"top-ustanova\" onclick=reloadList(this.childNodes[1].childNodes[1].innerHTML);fillSearchBox(this.childNodes[1].childNodes[1].innerHTML);reloadMap();>\n";
+            echo "  <div class=\"top-ustanova-content\">\n";
+            echo "    <span id=\"span-naziv\">" . $naziv . "</span>\n";
+            echo "  </div>\n";
+            echo "</div>\n";
+        }
+        ?>
+      </div>
+      <div class="ustanove-same-name" id="ustanove-same-name">
+      </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -128,6 +153,8 @@ require_once 'timezoneconfig.php';
     <script src="scripts/gmaps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlIllIUxkJ8epjpWWYZj60o2H_E_HNqVQ&callback=myMap" async defer></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> -->
+
+    <script src="scripts/top-ustanova.js"></script>
   </body>
 
 </html>

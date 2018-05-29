@@ -27,11 +27,13 @@ html, body, #map {
 }
 
 .top-ustanova{
-    border:1px solid black; 
     height: 100px;
     margin-bottom: 5px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(18,18,18,0.5)
 }
 
 .top-ustanova-content{
-    padding: 5px;
+    padding-top: 40px;
+    padding-left: 40px;
 }
