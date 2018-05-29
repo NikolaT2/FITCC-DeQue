@@ -14,7 +14,8 @@ function myMap(str) {
         center: new google.maps.LatLng(43.3555541,17.8074431),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: myStyles 
+        styles: myStyles,
+        gestureHandling: 'greedy'
     }
 
     var lastinfowindow;
