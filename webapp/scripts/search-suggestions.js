@@ -19,3 +19,15 @@ function showResult(str) {
     xmlhttp.open("GET","phpscripts/livesearch.php?q="+str,true);
     xmlhttp.send();
   }
+
+  function fillSearchBox(str)
+  {
+    document.getElementById("searchBox").value = str;
+    document.getElementById("livesearch").innerHTML="";
+  }
+
+  function reloadMap()
+  {
+    var ustanova = document.getElementById("searchBox").value;
+    myMap(ustanova);
+  }

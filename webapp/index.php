@@ -38,9 +38,9 @@ require_once 'timezoneconfig.php';
           <form class="navbar-form navbar-search-form active" role="search">
            <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control search-input" onkeyup="showResult(this.value)" placeholder="Search for...">
+              <input type="text" class="form-control search-input" id="searchBox" onkeyup="showResult(this.value)" placeholder="Search for...">
               <span class="input-group-btn">
-                <button class="btn btn-default search-img" type="button"><i class="fa fa-search"><img class="img-search" src="icons/search-icon.png"></img></i></button>
+                <button class="btn btn-default search-img" type="button" onclick="reloadMap()"><i class="fa fa-search"><img class="img-search" src="icons/search-icon.png"></img></i></button>
               </span>
             </div>
             <div id="livesearch"></div>
