@@ -12,32 +12,45 @@ using KeepAutomation.Barcode.Bean;
 using KeepAutomation.Barcode.Windows;
 using System.Drawing.Imaging;
 using System.Threading;
+using System.Web;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace FIT___Stampanje_tiketa
 {
     public partial class Form1 : Form
     {
         Bitmap QRcode = null;
+        String naziv = "";
+        String adresa = "";
+        int redniBroj = 0;
         public Form1()
         {
             InitializeComponent();
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            
+            getDataFromDatabase();
+            serialPort1.Open();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            NacrtajTiket(e.Graphics, "NLB Banka a.d. Banja Luka", "Karađorđeva 13, Lukavica", 312, 6);            
+            
+            NacrtajTiket(e.Graphics, this.naziv, this.adresa, this.redniBroj, Convert.ToInt32(idUstanoveTextBox.Text));
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.redniBroj++;
             this.printDocument1.Print();
+            //MessageBox.Show(this.redniBroj.ToString());
+            updateDatabase();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            NacrtajTiket(e.Graphics, "NLB Banka a.d. Banja Luka", "Karađorđeva 13, Lukavica", 31, 6);
+            NacrtajTiket(e.Graphics, this.naziv, this.adresa, this.redniBroj, 6);
         }
 
         public void NacrtajTiket(Graphics g, String institucija, String adresa, int redniBroj, int idInstitucije)
@@ -48,7 +61,7 @@ namespace FIT___Stampanje_tiketa
             Pen olovka = new Pen(Color.Black, 1f);
             olovka.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
             Rectangle rect = new Rectangle(pocetak, velicina);
-            g.DrawRectangle(olovka, rect);
+            //g.DrawRectangle(olovka, rect);
 
             velicina = new Size(270, 100);
             Rectangle okvirSlike = new Rectangle(pocetak, velicina);
@@ -94,6 +107,8 @@ namespace FIT___Stampanje_tiketa
 
             pocetak = new Point(0, 640);
             g.DrawRectangle(olovka, new Rectangle(pocetak, new Size(1, 1)));
+
+            
         }
 
         public void generisiQRKod(String tekst)
@@ -146,5 +161,80 @@ namespace FIT___Stampanje_tiketa
             //qrcode.generateBarcodeToImageFile("qrcode.png");
             this.QRcode = qrcode.generateBarcodeToBitmap();
         }
+
+        public void getDataFromDatabase()
+        {
+            String idUstanove = idUstanoveTextBox.Text;
+            //MessageBox.Show(idUstanove);
+
+            String URL = "http://paviljondedinje.com/kmet/api/get-ustanova-stanje.php?id_ustanove="+idUstanove;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+
+             try {
+                WebResponse webResponse = request.GetResponse();
+                Stream webStream = webResponse.GetResponseStream();
+                StreamReader responseReader = new StreamReader(webStream);
+                string response = responseReader.ReadToEnd();
+
+                isparsirajJSON(response);
+                
+                responseReader.Close();
+            } catch (Exception e) {
+                Console.Out.WriteLine("-----------------");
+                Console.Out.WriteLine(e.Message);
+            }
+
+        }
+
+        public void updateDatabase()
+        {
+            String idUstanove = idUstanoveTextBox.Text;
+            //MessageBox.Show(idUstanove);
+
+            String URL = "http://paviljondedinje.com/kmet/api/update-stanje-poslednji.php?id_ustanove=" + idUstanove + "&poslednji_uzeti=" + this.redniBroj.ToString();
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            try
+            {
+                WebResponse webResponse = request.GetResponse();
+                Stream webStream = webResponse.GetResponseStream();
+                StreamReader responseReader = new StreamReader(webStream);
+                string response = responseReader.ReadToEnd();
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("-----------------");
+                Console.Out.WriteLine(e.Message);
+            }
+
+        }
+
+        public void isparsirajJSON(String response)
+        {
+            //MessageBox.Show(response);
+            var objekat = JObject.Parse("{\"objekat\":"+response+"}");
+
+            this.naziv = objekat["objekat"][0]["NAZIV"].ToString();
+            this.redniBroj = Convert.ToInt32(objekat["objekat"][0]["POSLEDNJI_UZETI"].ToString());
+            this.adresa = objekat["objekat"][0]["ADRESA"].ToString();
+            //MessageBox.Show(objekat["objekat"][0]["POSLEDNJI_UZETI"].ToString());
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            String s = serialPort1.ReadLine();
+
+                this.redniBroj++;
+                this.printDocument1.Print();
+                //MessageBox.Show(this.redniBroj.ToString());
+                updateDatabase();
+        }
     }
+
 }
+
