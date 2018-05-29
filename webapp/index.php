@@ -30,7 +30,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles -->
-    <link href="styles/default6.css" rel="stylesheet"> 
+    <link href="styles/default7.css" rel="stylesheet"> 
 
     <script src="scripts/search-suggestions.js"></script>
 
@@ -129,17 +129,6 @@ while($row = mysqli_fetch_assoc($result)) {
 
     <div class="left-info-pane">
       <div class="top-ustanove" id="top-ustanove">
-        <?php
-        for($i = 1; $i <= 5; $i++)
-        {
-            $naziv = $array[$i]['NAZIV'];
-            echo "<div class=\"top-ustanova\" onclick=reloadList(this.childNodes[1].childNodes[1].innerHTML);fillSearchBox(this.childNodes[1].childNodes[1].innerHTML);reloadMap();>\n";
-            echo "  <div class=\"top-ustanova-content\">\n";
-            echo "    <span id=\"span-naziv\">" . $naziv . "</span>\n";
-            echo "  </div>\n";
-            echo "</div>\n";
-        }
-        ?>
       </div>
       <div class="ustanove-same-name" id="ustanove-same-name">
       </div>
@@ -150,11 +139,11 @@ while($row = mysqli_fetch_assoc($result)) {
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="scripts/gmaps.js"></script>
+    <script src="scripts/gmaps3.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlIllIUxkJ8epjpWWYZj60o2H_E_HNqVQ&callback=myMap" async defer></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> -->
 
-    <script src="scripts/top-ustanova.js"></script>
+    <script src="scripts/top-ustanova2.js"></script>
   </body>
 
 </html>

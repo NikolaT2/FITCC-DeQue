@@ -1,8 +1,5 @@
 function myMap(str) {
     // Remove points of interest
-
-    var link = 'localhost/webapp';
-
     var myStyles =[
         {
             featureType: "poi",
@@ -25,9 +22,9 @@ function myMap(str) {
     var ajax_get_ustanova;
 
     if (str == null)
-        ajax_get_ustanova = link + '/api/get-all-ustanova.php';
+        ajax_get_ustanova = 'http://paviljondedinje.com/kmet/api/get-all-ustanova.php';
     else
-        ajax_get_ustanova = link + '/api/get-ustanova-from-name.php?naziv=' + str;
+        ajax_get_ustanova = 'http://paviljondedinje.com/kmet/api/get-ustanova-from-name.php?naziv=' + str;
 
     $.get(ajax_get_ustanova, function(data) {
         var markers = JSON.parse(data);
@@ -38,7 +35,7 @@ function myMap(str) {
         });
 
         markers.forEach(element => {
-            $.get(link  + 'api/get-ustanova-stanje.php?id_ustanove=' + element['ID_USTANOVE'], function(data_stanje) {
+            $.get('http://paviljondedinje.com/kmet/api/get-ustanova-stanje.php?id_ustanove=' + element['ID_USTANOVE'], function(data_stanje) {
                 var stanje = JSON.parse(data_stanje);
             
                 var marker = new google.maps.Marker({
