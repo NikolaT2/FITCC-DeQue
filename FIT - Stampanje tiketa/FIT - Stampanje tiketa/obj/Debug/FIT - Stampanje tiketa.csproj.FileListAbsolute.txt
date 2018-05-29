@@ -1,0 +1,10 @@
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\bin\Debug\FIT - Stampanje tiketa.exe.config
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\bin\Debug\FIT - Stampanje tiketa.exe
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\bin\Debug\FIT - Stampanje tiketa.pdb
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT - Stampanje tiketa.csprojResolveAssemblyReference.cache
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT___Stampanje_tiketa.Form1.resources
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT___Stampanje_tiketa.Properties.Resources.resources
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT - Stampanje tiketa.csproj.GenerateResource.Cache
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT - Stampanje tiketa.exe
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\obj\Debug\FIT - Stampanje tiketa.pdb
+c:\users\pc\documents\visual studio 2013\Projects\FIT - Stampanje tiketa\FIT - Stampanje tiketa\bin\Debug\KeepAutomation.Barcode.Windows.dll
