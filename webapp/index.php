@@ -93,7 +93,8 @@ require_once 'timezoneconfig.php';
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="scripts/gmaps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlIllIUxkJ8epjpWWYZj60o2H_E_HNqVQ&callback=myMap"async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script> -->
   </body>
 
 </html>
