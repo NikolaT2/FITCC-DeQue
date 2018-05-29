@@ -37,3 +37,12 @@ html, body, #map {
 
     margin-right: 10px;
 }
+
+.search-img{
+    padding: .25rem .75rem;
+}
+
+#livesearch{
+    background-color: white;
+    width: 92.5%;
+}
