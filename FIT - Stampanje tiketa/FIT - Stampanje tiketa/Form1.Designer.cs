@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.button1 = new System.Windows.Forms.Button();
             this.idUstanoveTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // printDocument1
@@ -65,6 +67,11 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "ID Ustanove";
             // 
+            // serialPort1
+            // 
+            this.serialPort1.PortName = "COM4";
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +94,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox idUstanoveTextBox;
         private System.Windows.Forms.Label label1;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 

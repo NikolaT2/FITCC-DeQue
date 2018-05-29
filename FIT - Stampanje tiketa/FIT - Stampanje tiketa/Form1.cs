@@ -30,6 +30,7 @@ namespace FIT___Stampanje_tiketa
             InitializeComponent();
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             getDataFromDatabase();
+            serialPort1.Open();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -60,7 +61,7 @@ namespace FIT___Stampanje_tiketa
             Pen olovka = new Pen(Color.Black, 1f);
             olovka.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
             Rectangle rect = new Rectangle(pocetak, velicina);
-            g.DrawRectangle(olovka, rect);
+            //g.DrawRectangle(olovka, rect);
 
             velicina = new Size(270, 100);
             Rectangle okvirSlike = new Rectangle(pocetak, velicina);
@@ -222,6 +223,16 @@ namespace FIT___Stampanje_tiketa
             this.redniBroj = Convert.ToInt32(objekat["objekat"][0]["POSLEDNJI_UZETI"].ToString());
             this.adresa = objekat["objekat"][0]["ADRESA"].ToString();
             //MessageBox.Show(objekat["objekat"][0]["POSLEDNJI_UZETI"].ToString());
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            String s = serialPort1.ReadLine();
+
+                this.redniBroj++;
+                this.printDocument1.Print();
+                //MessageBox.Show(this.redniBroj.ToString());
+                updateDatabase();
         }
     }
 
