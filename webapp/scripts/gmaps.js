@@ -61,5 +61,10 @@ function myMap(str) {
                 marker.setMap(map);
             });
         });
+
+        map.addListener('click', function() {
+            infowindow.close();
+          });
+
     });
 } 
