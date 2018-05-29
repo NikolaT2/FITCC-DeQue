@@ -27,7 +27,7 @@ if (strlen($q)>0) {
           */
         } 
         else {
-          $hint = $hint . "</br><a>" . $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
+          $hint = $hint . "</br><a onclick=fillSearchBox(this.innerHTML)>" . $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
           /*
           $hint=$hint . "<br /><a href='" .
           $z->item(0)->childNodes->item(0)->nodeValue .
