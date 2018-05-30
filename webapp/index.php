@@ -129,12 +129,12 @@ while($row = mysqli_fetch_assoc($result)) {
 
     <div class="left-info-pane">
       <div class="ustanova-tipovi" id="ustanove-tipovi">
-        <div class="top-ustanova" onclick="loadUstanovaType(0)">
+        <div class="top-ustanova" onclick="loadUstanovaType(0); reloadMap(null, 0);">
           <div class="top-ustanova-content">
             Banks
           </div>
         </div>
-        <div class="top-ustanova" onclick="loadUstanovaType(1)">
+        <div class="top-ustanova" onclick="loadUstanovaType(1); reloadMap(null, 1);">
           <div class="top-ustanova-content">
             Post offices
           </div>

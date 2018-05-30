@@ -26,8 +26,13 @@ function showResult(str) {
     document.getElementById("livesearch").innerHTML="";
   }
 
-  function reloadMap()
+  function reloadMap(name, type)
   {
-    var ustanova = document.getElementById("searchBox").value;
-    myMap(ustanova);
+    var ustanova = null;
+    if (name == null)
+      ustanova = document.getElementById("searchBox").value;
+    else
+      ustanova = name;
+    
+    myMap(ustanova, type);
   }

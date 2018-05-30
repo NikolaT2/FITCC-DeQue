@@ -6,7 +6,8 @@ $query = "SELECT DISTINCT(NAZIV) FROM USTANOVA WHERE TIP=" . $_GET['tip'] . ";";
 $result = mysqli_query($con, $query);
 
 // Prva ustanova, samo za testiranje
-$row = mysqli_fetch_assoc($result);
+if ($_GET['tip'] == 0)
+    $row = mysqli_fetch_assoc($result);
 
 $i = 0;
 while($row = mysqli_fetch_assoc($result)) {

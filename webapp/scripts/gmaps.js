@@ -1,4 +1,4 @@
-function myMap(str) {
+function myMap(naziv, type) {
     // Remove points of interest
 
     var link = 'http://localhost/webapp';
@@ -24,10 +24,12 @@ function myMap(str) {
     var lastinfowindow;
     var ajax_get_ustanova;
 
-    if (str == null)
+    if (naziv == null && type == null)
         ajax_get_ustanova = link + '/api/get-all-ustanova.php';
-    else
-        ajax_get_ustanova = link + '/api/get-ustanova-from-name.php?naziv=' + str;
+    if (naziv != null && type == null)
+        ajax_get_ustanova = link + '/api/get-ustanova-from-name.php?naziv=' + naziv;
+    if (naziv == "" && type != null)
+        ajax_get_ustanova = link + '/api/get-ustanova-from-type.php?tip=' + type;
 
     $.get(ajax_get_ustanova, function(data) {
         var markers = JSON.parse(data);
@@ -52,12 +54,12 @@ function myMap(str) {
                 if (stanje[0] != null)
                     poslednji_minus_trenutni = (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']));
                 
-                var rv_od = element['RV_OD'] != null ? element['RV_OD'].substring(0,2) : 'N';
-                var rv_do = element['RV_DO'] != null ? element['RV_DO'].substring(0,2) : 'N';
+                var rv_od = element['RV_OD'] != null ? element['RV_OD'].substring(0,5) : 'N';
+                var rv_do = element['RV_DO'] != null ? element['RV_DO'].substring(0,5) : 'N';
                 var contentString = '<p>' + element['NAZIV'] + '</p><hr/>' +
                                     '<div class=\'marker-item\'><p>People in queue: ' + poslednji_minus_trenutni + '</p>' + 
                                     '<p>Estimated waiting time: ' + poslednji_minus_trenutni*5 + 'min </p><hr/></div>' + 
-                                    'Radno vrijeme: ' + rv_od + ':' + rv_do;
+                                    'Radno vrijeme: ' + rv_od + ' - ' + rv_do;
             
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.close();
