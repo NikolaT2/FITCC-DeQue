@@ -52,9 +52,12 @@ function myMap(str) {
                 if (stanje[0] != null)
                     poslednji_minus_trenutni = (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']));
                 
-                var contentString = '<p>' + element['NAZIV'] + '</p>' + 
-                                    '<p>People in queue: ' + poslednji_minus_trenutni + '</p>' + 
-                                    '<p>Estimated waiting time: ' + poslednji_minus_trenutni*5 + 'min </p>';
+                var rv_od = element['RV_OD'] != null ? element['RV_OD'].substring(0,2) : 'N';
+                var rv_do = element['RV_DO'] != null ? element['RV_DO'].substring(0,2) : 'N';
+                var contentString = '<p>' + element['NAZIV'] + '</p><hr/>' +
+                                    '<div class=\'marker-item\'><p>People in queue: ' + poslednji_minus_trenutni + '</p>' + 
+                                    '<p>Estimated waiting time: ' + poslednji_minus_trenutni*5 + 'min </p><hr/></div>' + 
+                                    'Radno vrijeme: ' + rv_od + ':' + rv_do;
             
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.close();
