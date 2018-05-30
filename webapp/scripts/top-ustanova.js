@@ -1,6 +1,11 @@
 $('document').ready(function(){
-    $('#ustanove-same-name').hide();
 
+});
+
+function loadUstanovaType(str)
+{
+    $('#ustanove-tipovi').hide();
+    $('#ustanove-same-name').hide();
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -13,11 +18,11 @@ $('document').ready(function(){
           document.getElementById("top-ustanove").innerHTML=this.responseText;
         }
     }
-    xmlhttp.open("GET","api/get-top-ustanova.php?tip="+0);
+    xmlhttp.open("GET","api/get-top-ustanova.php?tip="+str);
     xmlhttp.send();
-});
+}
 
-function reloadList(str)
+function loadUstanovaName(str)
 {
     $('#top-ustanove').hide();
     $('#ustanove-same-name').show();

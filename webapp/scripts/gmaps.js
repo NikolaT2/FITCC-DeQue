@@ -1,7 +1,7 @@
 function myMap(str) {
     // Remove points of interest
 
-    var link = 'localhost/webapp';
+    var link = 'http://localhost/webapp';
 
     var myStyles =[
         {
@@ -38,7 +38,7 @@ function myMap(str) {
         });
 
         markers.forEach(element => {
-            $.get(link  + 'api/get-ustanova-stanje.php?id_ustanove=' + element['ID_USTANOVE'], function(data_stanje) {
+            $.get(link  + '/api/get-ustanova-stanje.php?id_ustanove=' + element['ID_USTANOVE'], function(data_stanje) {
                 var stanje = JSON.parse(data_stanje);
             
                 var marker = new google.maps.Marker({
@@ -58,7 +58,6 @@ function myMap(str) {
             
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.close();
-                    map.setCenter(marker.getPosition());
                     infowindow.setContent(contentString);
                     infowindow.open(map, marker);
                 });    

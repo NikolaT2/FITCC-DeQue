@@ -1,4 +1,5 @@
 body {
+    top: 56px;
     padding-top: 54px;
 }
 @media (min-width: 992px) {
@@ -16,22 +17,35 @@ html, body, #map {
 
 #map {
     position: relative;
+    top: 56px;
+    margin-bottom: 60px;
 }
 
 .left-info-pane{
     position: absolute;
-    top: 56px;
+    top: 60px;
     width: 400px;
     padding-left: 20px;
     background-color: transparent;
 }
 
 .top-ustanova{
-    border:1px solid black; 
     height: 100px;
     margin-bottom: 5px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(18,18,18,0.5)
 }
 
 .top-ustanova-content{
-    padding: 5px;
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+.ustanova-item{
+    padding-top: 20px;
+}
+
+.ustanova-item p{
+    font-size: 12px;
+    margin-bottom: 0;
 }
