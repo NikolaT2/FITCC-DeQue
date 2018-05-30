@@ -98,7 +98,7 @@ while($row = mysqli_fetch_assoc($result)) {
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Inquire<span class="sr-only">Home</span></a>
+                    <a class="nav-link" href="inquire.html">Inquire<span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>

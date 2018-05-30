@@ -49,3 +49,21 @@ html, body, #map {
     font-size: 12px;
     margin-bottom: 0;
 }
+
+.inquiry{
+    text-align: center;
+}
+
+.inquiry-container{
+    margin: 0 auto;
+}
+
+.red{
+    color:red;
+    }
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+}
