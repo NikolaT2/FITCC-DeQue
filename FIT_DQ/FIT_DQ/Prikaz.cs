@@ -28,7 +28,7 @@ namespace FIT_DQ
             PrivateFontCollection pfc = new PrivateFontCollection();
             pfc.AddFontFile("fontDigital7.ttf");
 
-            labela.Font = new Font(pfc.Families[0], 200);
+            labela.Font = new Font(pfc.Families[0], 600);
         }
 
         private void labela_Click(object sender, EventArgs e)
