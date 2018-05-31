@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","paviljon_kmet","kmetkmet","paviljon_kmetovi");
+$con = mysqli_connect("localhost","paviljon_kmet","kmetkmet","paviljon_kmetovi") or die('cannot connect to db');
 mysqli_set_charset($con, "utf8");
 // Check connection
 if (mysqli_connect_errno())
