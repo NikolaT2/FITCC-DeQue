@@ -162,6 +162,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
     <script src="scripts/gmaps.js"></script>
     <script src="scripts/top-ustanova.js"></script>
+    <script src="scripts/leftpane.js"></script>
   </body>
 
 </html>

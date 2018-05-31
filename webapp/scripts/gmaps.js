@@ -77,8 +77,8 @@ function getMarkersData()
                 
                 var poslednji_minus_trenutni = 0;
                 if (stanje[0] != null)
-                    poslednji_minus_trenutni = (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']));
-                
+                    poslednji_minus_trenutni = ((parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE'])+1) > 0) ? (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE'])+1) : 0;
+
                 var rv_od = element['RV_OD'] != null ? element['RV_OD'].substring(0,5) : 'N';
                 var rv_do = element['RV_DO'] != null ? element['RV_DO'].substring(0,5) : 'N';
                 var contentString = '<p>' + element['NAZIV'] + '</p><hr/>' +
@@ -118,7 +118,7 @@ function getMarkersData()
 
                 var poslednji_minus_trenutni = 0;
                 if (stanje[0] != null)
-                    poslednji_minus_trenutni = (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE']));
+                    poslednji_minus_trenutni = ((parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE'])+1) > 0) ? (parseInt(stanje[0]['POSLEDNJI_UZETI']) - parseInt(stanje[0]['TRENUTNO_STANJE'])+1) : 0;
                 
                 var rv_od = element[0]['RV_OD'] != null ? element[0]['RV_OD'].substring(0,5) : 'N';
                 var rv_do = element[0]['RV_DO'] != null ? element[0]['RV_DO'].substring(0,5) : 'N';
